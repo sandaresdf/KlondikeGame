@@ -1,5 +1,3 @@
-package klondike;
-
 import klondike.controller.KlondikeController;
 import klondike.controller.KlondikeTextualController;
 import klondike.model.hw02.BasicKlondike;
