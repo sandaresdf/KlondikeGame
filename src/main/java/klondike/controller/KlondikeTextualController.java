@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class KlondikeTextualController implements KlondikeController {
     private final Readable readable;
     private final Appendable appendable;
+    private boolean hasQuit = false;
 
     /**
      * Creates a new textual controller.
@@ -38,6 +39,7 @@ public class KlondikeTextualController implements KlondikeController {
 
         Scanner scanner = new Scanner(readable);
         KlondikeTextualView view = new KlondikeTextualView(model, appendable);
+        hasQuit = false;
 
         try {
             model.startGame(deck, shuffle, numPiles, numDraw);
@@ -45,7 +47,7 @@ public class KlondikeTextualController implements KlondikeController {
             throw new IllegalStateException("Cannot start game: " + e.getMessage());
         }
 
-        while (!model.isGameOver()) {
+        while (!model.isGameOver() && !hasQuit) {
             renderGameState(view, model);
 
             if (!scanner.hasNext()) {
@@ -60,7 +62,7 @@ public class KlondikeTextualController implements KlondikeController {
             }
 
             try {
-                processCommand(command, scanner, model);
+                processCommand(command, scanner, view, model);
             } catch (IllegalArgumentException | IllegalStateException e) {
                 transmit("Invalid move. Play again. " + e.getMessage() + "\n");
             }
@@ -85,19 +87,19 @@ public class KlondikeTextualController implements KlondikeController {
         }
     }
 
-    private void processCommand(String command, Scanner scanner, KlondikeModel<?> model) {
+    private void processCommand(String command, Scanner scanner, KlondikeTextualView view, KlondikeModel<?> model) {
         switch (command.toLowerCase()) {
             case "mpp": // mpp 4 2 5
-                handleMovePile(scanner, model);
+                handleMovePile(scanner, view, model);
                 break;
             case "md":
-                handleMoveDraw(scanner, model);
+                handleMoveDraw(scanner, view, model);
                 break;
             case "mpf":
-                handleMoveToFoundation(scanner, model);
+                handleMoveToFoundation(scanner, view, model);
                 break;
             case "mdf":
-                handleMoveDrawToFoundation(scanner, model);
+                handleMoveDrawToFoundation(scanner, view, model);
                 break;
             case "dd":
                 model.discardDraw();
@@ -106,53 +108,62 @@ public class KlondikeTextualController implements KlondikeController {
                 transmit("Invalid command. Try again.\n");
                 break;
         }
+
     }
 
-    private void handleMovePile(Scanner scanner, KlondikeModel<?> model) {
+    private void handleMovePile(Scanner scanner, KlondikeTextualView view, KlondikeModel<?> model) {
+
         Integer srcPile = readNumber(scanner);
         if (srcPile == null) {
+            handleQuit(view, model);
             return;
         }
 
         Integer numCards = readNumber(scanner);
         if (numCards == null) {
+            handleQuit(view, model);
             return;
         }
 
         Integer destPile = readNumber(scanner);
         if (destPile == null) {
+            handleQuit(view, model);
             return;
         }
 
         model.movePile(srcPile - 1, numCards, destPile - 1);
     }
 
-    private void handleMoveDraw(Scanner scanner, KlondikeModel<?> model) {
+    private void handleMoveDraw(Scanner scanner, KlondikeTextualView view, KlondikeModel<?> model) {
         Integer destPile = readNumber(scanner);
         if (destPile == null) {
+            handleQuit(view, model);
             return;
         }
 
         model.moveDraw(destPile - 1);
     }
 
-    private void handleMoveToFoundation(Scanner scanner, KlondikeModel<?> model) {
+    private void handleMoveToFoundation(Scanner scanner, KlondikeTextualView view, KlondikeModel<?> model) {
         Integer srcPile = readNumber(scanner);
         if (srcPile == null) {
+            handleQuit(view, model);
             return;
         }
 
         Integer foundationPile = readNumber(scanner);
         if (foundationPile == null) {
+            handleQuit(view, model);
             return;
         }
 
         model.moveToFoundation(srcPile - 1, foundationPile - 1);
     }
 
-    private void handleMoveDrawToFoundation(Scanner scanner, KlondikeModel<?> model) {
+    private void handleMoveDrawToFoundation(Scanner scanner, KlondikeTextualView view, KlondikeModel<?> model) {
         Integer foundationPile = readNumber(scanner);
         if (foundationPile == null) {
+            handleQuit(view, model);
             return;
         }
 
@@ -160,10 +171,12 @@ public class KlondikeTextualController implements KlondikeController {
     }
 
     private Integer readNumber(Scanner scanner) {
+
         while (scanner.hasNext()) { // mpp a 4 5
             String input = scanner.next();
 
             if (input.equalsIgnoreCase("q")) {
+                hasQuit = true;
                 return null;
             }
 
@@ -189,6 +202,9 @@ public class KlondikeTextualController implements KlondikeController {
             view.render();
             transmit("\n");
             transmit("Score: " + model.getScore() + "\n");
+
+            // set game over
+//            model.
         } catch (IOException e) {
             throw new IllegalStateException("Cannot render quit state");
         }
