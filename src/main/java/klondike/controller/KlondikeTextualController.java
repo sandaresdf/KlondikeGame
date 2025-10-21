@@ -202,9 +202,6 @@ public class KlondikeTextualController implements KlondikeController {
             view.render();
             transmit("\n");
             transmit("Score: " + model.getScore() + "\n");
-
-            // set game over
-//            model.
         } catch (IOException e) {
             throw new IllegalStateException("Cannot render quit state");
         }
