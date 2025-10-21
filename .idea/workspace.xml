@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79a29d96-841a-420a-96f8-095810001707" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/src/test/java/KlondikeControllerGameEndTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/klondike/controller/KlondikeTextualController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klondike/controller/KlondikeTextualController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/KlondikeTextualControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/KlondikeTextualControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klondike/model/hw02/BasicKlondike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klondike/model/hw02/BasicKlondike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/klondike/model/hw02/Pile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klondike/model/hw02/Pile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,25 +57,52 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KlondikeTextualControllerTest">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.App" />
-      <module name="KlondikeGame1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.KlondikeControllerGameEndTest">
     <configuration name="BasicKlondikeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KlondikeGame1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BasicKlondikeTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KlondikeCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KlondikeGame1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="KlondikeCardTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KlondikeControllerGameEndTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KlondikeGame1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klondike.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klondike" />
+      <option name="MAIN_CLASS_NAME" value="klondike.KlondikeControllerGameEndTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KlondikeControllerGameEndTest.testWinByMovingAceFirst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KlondikeGame1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klondike.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klondike" />
+      <option name="MAIN_CLASS_NAME" value="klondike.KlondikeControllerGameEndTest" />
+      <option name="METHOD_NAME" value="testWinByMovingAceFirst" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,33 +116,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KlondikeTextualControllerTest.testConstructorNullAppendable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="KlondikeGame1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="KlondikeTextualControllerTest" />
-      <option name="METHOD_NAME" value="testConstructorNullAppendable" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KlondikeTextualControllerTest.testQuitDuringNumberInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="KlondikeGame1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="KlondikeTextualControllerTest" />
-      <option name="METHOD_NAME" value="testQuitDuringNumberInput" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KlondikeControllerGameEndTest" />
         <item itemvalue="JUnit.KlondikeTextualControllerTest" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.KlondikeTextualControllerTest.testQuitDuringNumberInput" />
-        <item itemvalue="JUnit.KlondikeTextualControllerTest.testConstructorNullAppendable" />
+        <item itemvalue="JUnit.KlondikeCardTest" />
         <item itemvalue="JUnit.BasicKlondikeTest" />
+        <item itemvalue="JUnit.KlondikeControllerGameEndTest.testWinByMovingAceFirst" />
       </list>
     </recent_temporary>
   </component>
