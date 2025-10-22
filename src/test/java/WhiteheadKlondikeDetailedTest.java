@@ -83,9 +83,19 @@ public class WhiteheadKlondikeDetailedTest {
     public void testSameColorMoveRedOnRed() {
         // Create deck: Red 3, Red 2, Red A to ensure same-color build
         List<KlondikeCard> deck = new ArrayList<>();
+//        deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
+//        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.A));
+//        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+
         deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
         deck.add(new KlondikeCard(Suit.DIAMONDS, Value.A));
         deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.two));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.three));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.three));
 
         game.startGame(deck, false, 2, 0);
 
@@ -105,14 +115,21 @@ public class WhiteheadKlondikeDetailedTest {
     public void testSameColorMoveBlackOnBlack() {
         // Create deck: Black 5, Black A, Black 4
         List<KlondikeCard> deck = new ArrayList<>();
-        deck.add(new KlondikeCard(Suit.SPADES, Value.five));
+//        deck.add(new KlondikeCard(Suit.SPADES, Value.five));
+//        deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
+//        deck.add(new KlondikeCard(Suit.SPADES, Value.four));
+
+        deck.add(new KlondikeCard(Suit.SPADES, Value.three));
         deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
-        deck.add(new KlondikeCard(Suit.SPADES, Value.four));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.two));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.two));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.three));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
 
         game.startGame(deck, false, 2, 0);
 
-        // Pile 0: [5♠]
-        // Pile 1: [A♣, 4♠]
+        // Pile 0: [3♠]
+        // Pile 1: [A♣, 2♠]
 
         // Try to move 4♠ onto 5♠ (both black, 4 is one less than 5)
         try {
@@ -127,16 +144,23 @@ public class WhiteheadKlondikeDetailedTest {
     public void testOppositeColorMoveNotAllowedRedOnBlack() {
         // Create deck where we try red on black
         List<KlondikeCard> deck = new ArrayList<>();
-        deck.add(new KlondikeCard(Suit.SPADES, Value.five));
+
+        deck.add(new KlondikeCard(Suit.SPADES, Value.three));
         deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.four));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.two));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.two));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.three));
 
         game.startGame(deck, false, 2, 0);
 
-        // Pile 0: [5♠] (black)
-        // Pile 1: [A♣, 4♡] (red)
+        // Pile 0: [3♠] (black)
+        // Pile 1: [A♣, 2♡] (red)
 
-        // Try to move 4♡ onto 5♠ (opposite colors)
+        // Try to move 2♡ onto 3♠ (opposite colors)
         try {
             game.movePile(1, 1, 0);
             fail("Should not allow opposite color move in Whitehead");
@@ -150,16 +174,22 @@ public class WhiteheadKlondikeDetailedTest {
     public void testOppositeColorMoveNotAllowedBlackOnRed() {
         // Create deck where we try black on red
         List<KlondikeCard> deck = new ArrayList<>();
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.six));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
         deck.add(new KlondikeCard(Suit.DIAMONDS, Value.A));
-        deck.add(new KlondikeCard(Suit.CLUBS, Value.five));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.two));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.two));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.three));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.three));
 
         game.startGame(deck, false, 2, 0);
 
-        // Pile 0: [6♡] (red)
-        // Pile 1: [A♢, 5♣] (black)
+        // Pile 0: [3♡] (red)
+        // Pile 1: [A♢, 2♣] (black)
 
-        // Try to move 5♣ onto 6♡ (opposite colors)
+        // Try to move 2♣ onto 3♡ (opposite colors)
         try {
             game.movePile(1, 1, 0);
             fail("Should not allow opposite color move in Whitehead");
@@ -218,24 +248,31 @@ public class WhiteheadKlondikeDetailedTest {
     public void testMultipleCardsSameSuitAllowed() {
         // Create deck with same-suit descending sequence
         List<KlondikeCard> deck = new ArrayList<>();
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.six));
-        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.five));
-        deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
+
         deck.add(new KlondikeCard(Suit.HEARTS, Value.four));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
         deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.three));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.four));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.two));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.three));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.four));
 
         game.startGame(deck, false, 3, 0);
 
-        // Pile 0: [6♡]
-        // Pile 1: [A♠, 5♡, 4♡]
-        // Pile 2: [A♣, 3♡]
+        // Pile 0: [4♡]
+        // Pile 1: [A♣, 2♠]
+        // Pile 2: [A♠, 3♡, 2♡]
 
-        // Move 5♡ and 4♡ together (same suit) onto 6♡
+        // Move 3♡ and 2♡ together (same suit) onto 4♡
         try {
-            game.movePile(1, 2, 0);
+            game.movePile(2, 2, 0);
             assertEquals("Should move multiple same-suit cards", 3, game.getPileHeight(0));
-            assertEquals(1, game.getPileHeight(1));
+            assertEquals(1, game.getPileHeight(2));
         } catch (IllegalArgumentException e) {
             fail("Same suit cards should move together in Whitehead: " + e.getMessage());
         }
@@ -245,22 +282,39 @@ public class WhiteheadKlondikeDetailedTest {
     public void testMultipleCardsDifferentSuitNotAllowed() {
         // Create deck with different suits in the build
         List<KlondikeCard> deck = new ArrayList<>();
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.six));
-        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.five));
+//        deck.add(new KlondikeCard(Suit.HEARTS, Value.six));
+//        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
+//        deck.add(new KlondikeCard(Suit.HEARTS, Value.five));
+//        deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
+//        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.four));
+//        deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
+
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.four));
         deck.add(new KlondikeCard(Suit.CLUBS, Value.A));
-        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.four));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.A));
         deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.two));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.A));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.three));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.four));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.three));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.four));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.two));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.three));
+        deck.add(new KlondikeCard(Suit.CLUBS, Value.four));
 
         game.startGame(deck, false, 3, 0);
 
-        // Pile 0: [6♡]
-        // Pile 1: [A♠, 5♡, 4♢]  - different suits!
-        // Pile 2: [A♣, 3♡]
+        // Pile 0: [4♡]
+        // Pile 1: [A♣, 2♡]
+        // Pile 2: [A♠, 3♡, 2♢]  - different suits!
 
         // Try to move 5♡ and 4♢ together (different suits)
         try {
-            game.movePile(1, 2, 0);
+            game.movePile(2, 2, 0);
             fail("Should not allow moving cards of different suits together");
         } catch (IllegalArgumentException e) {
             assertTrue("Should fail due to different suits",
@@ -271,14 +325,21 @@ public class WhiteheadKlondikeDetailedTest {
     @Test
     public void testSingleCardMoveAlwaysAllowedRegardlessOfSuit() {
         List<KlondikeCard> deck = new ArrayList<>();
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.five));
+
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
         deck.add(new KlondikeCard(Suit.SPADES, Value.A));
-        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.four));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.two));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.A));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.three));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.three));
 
         game.startGame(deck, false, 2, 0);
 
-        // Pile 0: [5♡]
-        // Pile 1: [A♠, 4♢]
+        // Pile 0: [3♡]
+        // Pile 1: [A♠, 2♢]
 
         // Move single card 4♢ onto 5♡ (same color, different suit)
         game.movePile(1, 1, 0);
@@ -414,14 +475,21 @@ public class WhiteheadKlondikeDetailedTest {
     @Test
     public void testMoveDrawToCascade() {
         List<KlondikeCard> deck = new ArrayList<>();
-        deck.add(new KlondikeCard(Suit.HEARTS, Value.five));
+
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.two));
         deck.add(new KlondikeCard(Suit.SPADES, Value.A));
-        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.four));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.A));
+        deck.add(new KlondikeCard(Suit.DIAMONDS, Value.three));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.three));
+        deck.add(new KlondikeCard(Suit.SPADES, Value.two));
 
         game.startGame(deck, false, 1, 2);
 
-        // Pile 0: [5♡]
-        // Draw: [A♠, 4♢]
+        // Pile 0: [3♡]
+        // Draw: [A♠, 2♢]
 
         // Move 4♢ from draw onto 5♡
         game.moveDraw(0);
@@ -433,13 +501,26 @@ public class WhiteheadKlondikeDetailedTest {
         List<KlondikeCard> deck = createSmallDeck();
         game.startGame(deck, false, 2, 0);
 
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.A));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.three));
+        deck.add(new KlondikeCard(Suit.HEARTS, Value.two));
+
+        // Pile 0: [A♡]
+        // Pile 1: [2♡, 3♡]
+
         assertEquals(0, game.getScore());
 
         game.moveToFoundation(0, 0);
         assertEquals(1, game.getScore());
 
+        game.movePile(1, 1, 0);
+        assertEquals(1, game.getScore());
+
         game.moveToFoundation(1, 0);
         assertEquals(2, game.getScore());
+
+        game.moveToFoundation(0, 0);
+        assertEquals(3, game.getScore());
     }
 
     @Test
