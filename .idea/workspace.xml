@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79a29d96-841a-420a-96f8-095810001707" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/klondike/Klondike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/klondike/model/hw04/AKlondike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/klondike/model/hw04/KlondikeCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/klondike/model/hw04/Pile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/klondike/model/hw04/WhiteheadKlondike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ControllerWithVariantsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/KlondikeCreatorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/WhiteheadKlondikeDetailedTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/klondike/model/hw02/BasicKlondike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/klondike/model/hw02/BasicKlondike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/WhiteheadKlondikeDetailedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/WhiteheadKlondikeDetailedTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +54,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KlondikeControllerGameEndTest.testActualWinWithSmallDeck">
+  <component name="RunManager" selected="JUnit.WhiteheadKlondikeDetailedTest">
     <configuration name="Basic 7/3" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="klondike.Klondike" />
       <module name="KlondikeGame1" />
@@ -88,40 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerWithVariantsTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="KlondikeGame1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ControllerWithVariantsTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KlondikeControllerGameEndTest.testActualWinWithSmallDeck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="KlondikeGame1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="klondike.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="klondike" />
-      <option name="MAIN_CLASS_NAME" value="klondike.KlondikeControllerGameEndTest" />
-      <option name="METHOD_NAME" value="testActualWinWithSmallDeck" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KlondikeCreatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="KlondikeGame1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="KlondikeCreatorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WhiteheadKlondikeDetailedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KlondikeGame1" />
       <extension name="coverage">
@@ -133,6 +90,22 @@
       <option name="PACKAGE_NAME" value="klondike" />
       <option name="MAIN_CLASS_NAME" value="klondike.WhiteheadKlondikeDetailedTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WhiteheadKlondikeDetailedTest.testMultipleCardsDifferentSuitNotAllowed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KlondikeGame1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klondike.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klondike" />
+      <option name="MAIN_CLASS_NAME" value="klondike.WhiteheadKlondikeDetailedTest" />
+      <option name="METHOD_NAME" value="testMultipleCardsDifferentSuitNotAllowed" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,22 +126,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WhiteheadKlondikeDetailedTest.testSameColorMoveRedOnRed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KlondikeGame1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klondike.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klondike" />
+      <option name="MAIN_CLASS_NAME" value="klondike.WhiteheadKlondikeDetailedTest" />
+      <option name="METHOD_NAME" value="testSameColorMoveRedOnRed" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WhiteheadKlondikeDetailedTest.testScoring" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KlondikeGame1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="klondike.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="klondike" />
+      <option name="MAIN_CLASS_NAME" value="klondike.WhiteheadKlondikeDetailedTest" />
+      <option name="METHOD_NAME" value="testScoring" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Basic 7/3" />
       <item itemvalue="Application.whitehead 7/3" />
       <item itemvalue="Application.whitehead 4/1" />
-      <item itemvalue="JUnit.ControllerWithVariantsTest (1)" />
-      <item itemvalue="JUnit.KlondikeControllerGameEndTest.testActualWinWithSmallDeck" />
-      <item itemvalue="JUnit.KlondikeCreatorTest" />
+      <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testMultipleCardsDifferentSuitNotAllowed" />
+      <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testSameColorMoveRedOnRed" />
+      <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testScoring" />
       <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest" />
       <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testSameColorMoveBlackOnBlack" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KlondikeControllerGameEndTest.testActualWinWithSmallDeck" />
         <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest" />
-        <item itemvalue="JUnit.ControllerWithVariantsTest (1)" />
-        <item itemvalue="JUnit.KlondikeCreatorTest" />
+        <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testScoring" />
+        <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testSameColorMoveRedOnRed" />
+        <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testMultipleCardsDifferentSuitNotAllowed" />
         <item itemvalue="JUnit.WhiteheadKlondikeDetailedTest.testSameColorMoveBlackOnBlack" />
       </list>
     </recent_temporary>
